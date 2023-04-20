@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8e6e7fe5fd9d19060838a2fee2857ca4",
+    "content-hash": "3c92463a90b389be70114925dcb95d59",
     "packages": [
         {
             "name": "brick/math",
@@ -564,6 +564,53 @@
                 }
             ],
             "time": "2023-02-25T20:23:15+00:00"
+        },
+        {
+            "name": "gsantoscomp/vet-db",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gsantoscomp/shared-vet-db.git",
+                "reference": "49b40a8941905685ada4c52decce625dbda2a532"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gsantoscomp/shared-vet-db/zipball/49b40a8941905685ada4c52decce625dbda2a532",
+                "reference": "49b40a8941905685ada4c52decce625dbda2a532",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": ">=5.5",
+                "illuminate/support": ">=5.5",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.20"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Gsantoscomp\\VetDb\\VetDbServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Gsantoscomp\\VetDb\\": "src/",
+                    "Gsantoscomp\\VetDb\\Factories\\": "src/database/factories"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Shared migrations, seeders and models of horsys' modules",
+            "support": {
+                "source": "https://github.com/gsantoscomp/shared-vet-db/tree/master",
+                "issues": "https://github.com/gsantoscomp/shared-vet-db/issues"
+            },
+            "time": "2023-04-20T17:52:58+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -7823,7 +7870,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "gsantoscomp/vet-db": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -159,6 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Gsantoscomp\VetDb\VetDbServiceProvider::class,
 
         /*
          * Application Service Providers...
