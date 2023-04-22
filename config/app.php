@@ -159,7 +159,8 @@ return [
         /*
          * Package Service Providers...
          */
-        Gsantoscomp\VetDb\VetDbServiceProvider::class,
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        Gsantoscomp\SharedVetDb\VetDbServiceProvider::class,
 
         /*
          * Application Service Providers...
