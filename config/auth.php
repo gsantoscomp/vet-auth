@@ -62,7 +62,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Gsantoscomp\SharedVetDb\Models\Usuario::class,
+            'model' => Gsantoscomp\SharedVetDb\Models\User::class,
         ],
 
         // 'users' => [

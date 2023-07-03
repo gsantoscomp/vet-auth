@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Gsantoscomp\SharedVetDb\Models\Usuario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -17,7 +15,7 @@ class AuthController extends Controller
     {
         $credentials = [
             'email' => $request->email,
-            'password' => $request->senha,
+            'password' => $request->password,
         ];
 
         if (!$token = auth()->attempt($credentials)) {
