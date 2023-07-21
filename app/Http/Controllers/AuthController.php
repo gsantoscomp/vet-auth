@@ -47,6 +47,7 @@ class AuthController extends Controller
     public function logout()
     {
         auth()->logout();
+        Cache::forget('permissions_' . auth()->user()->id);
 
         return response()->json(['message' => 'Successfully logged out']);
     }
