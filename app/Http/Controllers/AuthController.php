@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Gsantoscomp\SharedVetDb\Models\Permission;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 
 class AuthController extends Controller
 {
@@ -21,6 +23,18 @@ class AuthController extends Controller
         if (!$token = auth()->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+
+        $authenticatedUser = auth()->user();
+        $userPermissions = Permission::select('name')
+                            ->where('user_type_id', $authenticatedUser->user_type_id)
+                            ->get()
+                            ->pluck('name');
+        
+        Cache::put(
+            'permissions_' . $authenticatedUser->id,
+            $userPermissions,
+            auth()->factory()->getTTL() * 60
+        );
 
         return $this->respondWithToken($token);
     }
@@ -44,11 +58,18 @@ class AuthController extends Controller
 
     protected function respondWithToken($token)
     {
+        $authenticatedUser = auth()->user();
+        $permissions = Permission::select('name')
+                        ->where('user_type_id', $authenticatedUser->user_type_id)
+                        ->get()
+                        ->pluck('name');
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
-            'user' => auth()->user()
+            'user' => $authenticatedUser,
+            'permissions' => $permissions
         ]);
     }
 }
