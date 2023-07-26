@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Gsantoscomp\SharedVetDb\Factories\UsuarioFactory;
+use Gsantoscomp\SharedVetDb\Models\User;
+use Gsantoscomp\SharedVetDb\Models\UserType;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        (new UsuarioFactory())->create();
+        $userTypes = [
+            [
+                'type' => 'admin',
+                'description' => 'Administrador do Sistema'
+            ],
+            [
+                'type' => 'vet',
+                'description' => 'Veterinário'
+            ],
+        ];
+
+        UserType::create($userTypes);
     }
 }

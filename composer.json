@@ -32,10 +32,7 @@
         "psr-4": {
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "Gsantoscomp\\SharedVetDb\\": "libs/shared-vet-db/src/",
-            "Gsantoscomp\\SharedVetDb\\Factories\\": "libs/shared-vet-db/src/database/factories",
-            "Gsantoscomp\\SharedVetDb\\Seeders\\": "libs/shared-vet-db/src/database/seeders"
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
